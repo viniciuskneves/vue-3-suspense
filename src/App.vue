@@ -1,10 +1,17 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Suspense Simple</router-link> |
+      <router-link to="/suspense-route">Suspense Route</router-link>
     </div>
-    <router-view />
+    <Suspense>
+      <template #default>
+        <router-view />
+      </template>
+      <template #fallback>
+        <span>I'm a loading screen, I'm waiting the view to be ready!</span>
+      </template>
+    </Suspense>
   </div>
 </template>
 
